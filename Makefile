@@ -1,16 +1,34 @@
 CC=cc
-CFLAGS=-Werror -Wextra -Wall # -g -fsanitize=address
+CFLAGS=-Werror -Wextra -Wall  -g -fsanitize=address
 
-SRCS = execution/main.c
+HEAP_CONTROL = 	heap_control/heap_control.c\
+				heap_control/utils.c
+
+EXECUTION = execution/main.c
+
+SRCS = 	$(HEAP_CONTROL)\
+		$(EXECUTION)
 
 OBJS = $(SRCS:.c=.o)
 
 NAME = cub3D
 
-all: $(NAME)
+all: $(NAME) 
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $^ -lmlx -framework OpenGL -framework AppKit -o $@ 
 
 %.o: %.c
-	$(CC) $(CFLAGS) $< -I./includes -o $@
+	$(CC) $(CFLAGS) -c $< -I./includes -o $@
+
+bonus: all
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: clean

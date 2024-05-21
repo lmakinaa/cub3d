@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"mlx.h": "c",
+		"heap_control.h": "c"
+	}
+}
