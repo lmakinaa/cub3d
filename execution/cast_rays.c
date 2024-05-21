@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 19:17:40 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/21 23:50:04 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/21 23:51:54 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ void cast_rays(t_mlx *mlx)
 	int  ray;
 
 	ray = 0;
+	mlx->ray->ray_angle = (M_PI / 2) - (FOV/2);
 	while (ray < S_W)
 	{
+		mlx->ray->ray_angle += FOV/S_W;
+		ray++;
 		//mlx->ray->
 	}
 	
