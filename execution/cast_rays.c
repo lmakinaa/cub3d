@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 19:17:40 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/21 23:57:36 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/22 00:17:57 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,16 @@ void cast_rays(t_mlx *mlx)
 	int  ray;
 
 	ray = 0;
-	mlx->ray->ray_angle = (M_PI / 2) - (FOV/2);
+	mlx->ray->ray_angle = (M_PI / 2) - (FOV / 2);
 	while (ray < S_W)
 	{
 		mlx->ray->flag_if_wall = 0;
-		
+		h_inter = (mlx->data->p_y / TILE_SIZE) * TILE_SIZE;
+		v_inter = (mlx->data->p_x + (h_inter - mlx->data->p_y)) / tan(map_angle(mlx->ray->ray_angle));
 		mlx->ray->ray_angle += FOV/S_W;
 		ray++;
 	}
 	
 }
 
+// h_step
