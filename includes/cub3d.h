@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/21 14:38:52 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/21 17:28:07 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ typedef struct s_parse_data
 
 typedef struct s_player //the player structure
 {
-	int		plyr_x; // player x position in pixels
-	int		plyr_y; // player y position in pixels
+	int		player_x; // player x position in pixels
+	int		player_y; // player y position in pixels
 	double	angle; // player angle
 	float	fov_rd; // field of view in radians
 	int		rot; // rotation flag

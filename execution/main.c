@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:09:29 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/21 14:51:41 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/21 17:28:07 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int game_loop(void *ml)
 	mlx->img.img_p = mlx_new_image(mlx->mlx_p, S_W, S_H); // create new image
 	// hook(mlx, 0, 0); // hook the player
 	// cast_rays(mlx); // cast the rays
+	puts("dsfs");
 	mlx_put_image_to_window(mlx->mlx_p, mlx->win, mlx->img.img_p, 0, 0); // put the image to the window
 	return (0);
 }
@@ -32,8 +33,8 @@ int	mlx_key(int k)
 
 void init_the_player(t_mlx *mlx)
 {
-	mlx->ply->plyr_x = mlx->data->p_x * TILE_SIZE + TILE_SIZE / 2; // player x position in pixels in the center of the tile
-	mlx->ply->plyr_y = mlx->data->p_y * TILE_SIZE + TILE_SIZE / 2; // player y position in pixels in the center of the tile
+	mlx->ply->player_x = mlx->data->p_x * TILE_SIZE + TILE_SIZE / 2; // player x position in pixels in the center of the tile
+	mlx->ply->player_y = mlx->data->p_y * TILE_SIZE + TILE_SIZE / 2; // player y position in pixels in the center of the tile
 	mlx->ply->fov_rd = (FOV * M_PI) / 180; // field of view in radians
 	mlx->ply->angle = M_PI; // player angle
 }
@@ -89,6 +90,7 @@ int main(void)
 	data = init_argumet(); // init the data structure
 	start_the_game(data); // start the game
 	mlx_loop(data->mlx->mlx_p); // mlx loop
-	//clean_exit()
+	heap_control(M_CLEAN, 0, 0, 0);
+	//clean_exit();
 	return 0;
 }
