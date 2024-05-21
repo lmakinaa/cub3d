@@ -6,11 +6,32 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 19:17:40 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/21 23:45:01 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/21 23:50:04 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "cub3d.h"
 
+float	map_angle(double angle)
+{
+	if (angle < 0)
+		angle += M_PI;
+	else if (angle > 0)
+		angle -= M_PI;
+	return (angle);
+}
 
+void cast_rays(t_mlx *mlx)
+{
+	double h_inter;
+	double v_inter;
+	int  ray;
+
+	ray = 0;
+	while (ray < S_W)
+	{
+		//mlx->ray->
+	}
+	
+}
 

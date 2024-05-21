@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/21 19:43:57 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/21 23:49:55 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ typedef struct s_player //the player structure
 
 typedef struct s_ray //the ray structure
 {
-	double	ray_ngl; // ray angle
-	double	distance; // distance to the wall
-	int		flag;  // flag for the wall
+	double	ray_angle; // ray angle
+	double	distance_to_wall; // distance to the wall
+	int		flag_if_wall;  // flag for the wall
 }		t_ray;
 
 typedef struct s_data //the data structure
