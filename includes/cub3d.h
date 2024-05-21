@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/21 17:28:07 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/21 19:43:57 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,9 @@ typedef struct s_mlx //the mlx structure
 	void		*mlx_p; // the mlx pointer
 	t_ray		*ray; // the ray structure
 	t_data		*data; // the data structure
-	t_player	*ply; // the player structure
+	t_player	*p; // the player structure
 } 		t_mlx;
+
+void cast_rays(t_mlx *mlx);
 
 #endif

@@ -4,7 +4,8 @@ CFLAGS=-Werror -Wextra -Wall  -g -fsanitize=address
 HEAP_CONTROL = 	heap_control/heap_control.c\
 				heap_control/utils.c
 
-EXECUTION = execution/main.c
+EXECUTION = execution/main.c\
+			execution/cast_rays.c
 
 SRCS = 	$(HEAP_CONTROL)\
 		$(EXECUTION)
