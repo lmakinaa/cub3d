@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/22 22:02:18 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/22 22:47:52 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define MINIMAP_H 180
 # define MINIMAP_W 300
 # define TILE_SIZE 32
+# define MINI_TILE_SIZE 10
 # define FOV 60
 # define ROTATION_SPEED 0.045
 # define PLAYER_SPEED 4
