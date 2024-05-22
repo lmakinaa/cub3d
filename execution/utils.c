@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 21:43:23 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/22 21:57:45 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/22 22:10:42 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	vr(void)
 	return (0);
 }
 
+// hadi 3ir katpushi limg flwindow
 void	display_img(t_mlx *mlx, int what_img)
 {
 	int		x;
