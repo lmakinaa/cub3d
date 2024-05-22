@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 19:17:40 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/22 00:17:57 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/22 01:25:21 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 float	map_angle(double angle)
 {
 	if (angle < 0)
-		angle += M_PI;
+		angle += (2 * M_PI);
 	else if (angle > 0)
-		angle -= M_PI;
+		angle -= (2 * M_PI);
 	return (angle);
 }
 
