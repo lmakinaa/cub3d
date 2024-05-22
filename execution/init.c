@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 21:41:45 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/22 21:42:14 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/22 22:59:47 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ t_data	*init_data(void)
 	return (res); // return the data structure
 }
 
-void init_the_player(t_mlx *mlx)
+void init_the_player(t_mlx *mlx, int tile_s)
 {
-	mlx->p->player_x = mlx->data->p_x * TILE_SIZE + TILE_SIZE / 2; // player x position in pixels in the center of the tile
-	mlx->p->player_y = mlx->data->p_y * TILE_SIZE + TILE_SIZE / 2; // player y position in pixels in the center of the tile
+	mlx->p->player_x = mlx->data->p_x * tile_s + tile_s / 2; // player x position in pixels in the center of the tile
+	mlx->p->player_y = mlx->data->p_y * tile_s + tile_s / 2; // player y position in pixels in the center of the tile
 	mlx->p->fov_rd = (FOV * M_PI) / 180; // field of view in radians
 	mlx->p->angle = M_PI; // player angle
 }

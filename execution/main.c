@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:09:29 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/22 22:02:29 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/22 22:58:07 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ void start_the_game(t_data *data)
 	mlx->mlx_p = mlx_init();
 	mlx->win = mlx_new_window(mlx->mlx_p, S_W, S_H, "Cub3D");
 	mlx->img.img_p = mlx_new_image(mlx->mlx_p, S_W, S_H);
+	mlx->img.tile_s = TILE_SIZE;
 	mlx->minimap_img.img_p = mlx_new_image(mlx->mlx_p, MINIMAP_W, MINIMAP_H);
+	mlx->minimap_img.tile_s = MINI_TILE_SIZE;
 	init_the_player(mlx);
 	mlx_loop_hook(mlx->mlx_p, game_loop, mlx);
 }

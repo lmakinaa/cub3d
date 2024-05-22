@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/22 22:50:50 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/22 23:01:13 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef struct	s_mlx_img
 	int		bpp;
 	int		line_size;
 	int		endian;
+	int		tile_s;
 }		t_img;
 
 typedef struct s_mlx
@@ -87,7 +88,7 @@ void	draw_minimap(t_mlx *mlx);
 void	display_img(t_mlx *mlx, int what_img);
 void	generate_minimap(t_mlx *mlx);
 t_data	*init_data(void);
-void	init_the_player(t_mlx *mlx);
+void	init_the_player(t_mlx *mlx, int tile_s);
 void	pixel_put(t_img img, int x, int y, unsigned int color);
 void	new_img(t_mlx *mlx, int what_img);
 
