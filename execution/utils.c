@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 21:43:23 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/22 22:50:41 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 00:14:06 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,23 @@ void	pixel_put(t_img img, int x, int y, unsigned int color)
 	*(unsigned int *) dst = color;
 }
 
+// needs some fix
+void	clear_image(t_img *img, int h, int w)
+{
+	int	x;
+	int	y;
+
+	y = -1;
+	while (++y < h)
+	{
+		x = -1;
+		while (++x < w)
+			pixel_put(*img, x, y, 0);
+	}
+}
+
 // hadi katcree image w katinitialisiha
-void	new_img(t_mlx *mlx, int what_img)
+void	new_img(t_mlx *mlx, int what_img, int clear_it)
 {
 	t_img	*img;
 	int		h;
@@ -53,6 +68,8 @@ void	new_img(t_mlx *mlx, int what_img)
 	else if (what_img == MINIMAP)
 		(1) && (img = &mlx->minimap_img, h = MINIMAP_H, w = MINIMAP_W);
 	mlx_destroy_image(mlx->mlx_p, img->img_p);
-	img->img_p = mlx_new_image(mlx->mlx_p, w, h); // create new image
+	img->img_p = mlx_new_image(mlx->mlx_p, w, h);
 	img->start_addr =  mlx_get_data_addr(img->img_p, &img->bpp, &img->line_size, &img->endian);
+	if (clear_it)
+		clear_image(img, h, w);
 }

@@ -7,7 +7,8 @@ HEAP_CONTROL = 	heap_control/heap_control.c\
 EXECUTION = execution/main.c\
 			execution/minimap.c\
 			execution/utils.c\
-			execution/init.c
+			execution/init.c\
+			execution/hooks.c
 
 SRCS = 	$(HEAP_CONTROL)\
 		$(EXECUTION)

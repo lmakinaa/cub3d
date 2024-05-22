@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:09:29 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/22 23:02:52 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 00:13:45 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void start_the_game(t_data *data)
 	mlx->minimap_img.tile_s = MINI_TILE_SIZE;
 	init_the_player(mlx);
 	mlx_loop_hook(mlx->mlx_p, game_loop, mlx);
+	mlx_key_hook(mlx->win, key_hooks, mlx);
 }
 
 int main(void)

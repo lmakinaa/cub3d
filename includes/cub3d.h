@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/22 23:08:50 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 00:05:48 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 
 # define MAIN 0
 # define MINIMAP 1
+
+# define C_TRANSPARENT 0xFF000000
 
 # define S_W 1900
 # define S_H 1000
@@ -92,6 +94,9 @@ void	generate_minimap(t_mlx *mlx);
 t_data	*init_data(void);
 void	init_the_player(t_mlx *mlx);
 void	pixel_put(t_img img, int x, int y, unsigned int color);
-void	new_img(t_mlx *mlx, int what_img);
+void	new_img(t_mlx *mlx, int what_img, int clear_it);
+int		key_hooks(int k, t_mlx *mlx);
+int 	game_loop(void *m);
+void	clear_image(t_img *img, int h, int w);
 
 #endif
