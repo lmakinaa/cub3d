@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/22 22:47:52 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/22 22:50:50 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ void	generate_minimap(t_mlx *mlx);
 t_data	*init_data(void);
 void	init_the_player(t_mlx *mlx);
 void	pixel_put(t_img img, int x, int y, unsigned int color);
+void	new_img(t_mlx *mlx, int what_img);
 
 #endif

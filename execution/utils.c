@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 21:43:23 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/22 22:10:42 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/22 22:50:41 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,20 @@ void	pixel_put(t_img img, int x, int y, unsigned int color)
 	offset = (y * img.line_size) + (x * (img.bpp / 8));
 	dst = &img.start_addr[offset];
 	*(unsigned int *) dst = color;
+}
+
+// hadi katcree image w katinitialisiha
+void	new_img(t_mlx *mlx, int what_img)
+{
+	t_img	*img;
+	int		h;
+	int		w;
+
+	if (what_img == MAIN)
+		(1) && (img = &mlx->img, h = S_H, w = S_W);
+	else if (what_img == MINIMAP)
+		(1) && (img = &mlx->minimap_img, h = MINIMAP_H, w = MINIMAP_W);
+	mlx_destroy_image(mlx->mlx_p, img->img_p);
+	img->img_p = mlx_new_image(mlx->mlx_p, w, h); // create new image
+	img->start_addr =  mlx_get_data_addr(img->img_p, &img->bpp, &img->line_size, &img->endian);
 }
