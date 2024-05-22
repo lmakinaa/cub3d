@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"mlx.h": "c",
-		"heap_control.h": "c"
+		"heap_control.h": "c",
+		"cub3d.h": "c"
 	}
 }

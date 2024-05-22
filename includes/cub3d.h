@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/21 23:49:55 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/22 21:55:03 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 # include <string.h>
 # include <stdio.h>
 
-# define S_WIDTH 1000
-# define S_HEIGHT 1000
 
 typedef struct s_parse_data
 {
@@ -33,12 +31,17 @@ typedef struct s_parse_data
 	int		h_map;  // map height
 }		t_parse_data;
 
-# define S_W 1900 // screen width
-# define S_H 1000 // screen height
-# define TILE_SIZE 30 // tile size
-# define FOV 60 // field of view
-# define ROTATION_SPEED 0.045 // rotation speed
-# define PLAYER_SPEED 4 // player speed
+# define MAIN 0
+# define MINIMAP 1
+
+# define S_W 1900
+# define S_H 1000
+# define MINIMAP_H 180
+# define MINIMAP_W 300
+# define TILE_SIZE 32
+# define FOV 60
+# define ROTATION_SPEED 0.045
+# define PLAYER_SPEED 4
 
 typedef struct s_player //the player structure
 {
@@ -80,6 +83,7 @@ typedef struct	s_mlx_img
 typedef struct s_mlx //the mlx structure
 {
 	t_img		img; // the image
+	t_img		minimap_img;
 	void		*win;
 	void		*mlx_p; // the mlx pointer
 	t_ray		*ray; // the ray structure
@@ -87,6 +91,11 @@ typedef struct s_mlx //the mlx structure
 	t_player	*p; // the player structure
 } 		t_mlx;
 
-void cast_rays(t_mlx *mlx);
+void 	cast_rays(t_mlx *mlx);
+void	draw_minimap(t_mlx *mlx);
+void	display_img(t_mlx *mlx, int what_img);
+void	generate_minimap(t_mlx *mlx);
+t_data	*init_data(void);
+void	pixel_put(t_img img, int x, int y, unsigned int color);
 
 #endif

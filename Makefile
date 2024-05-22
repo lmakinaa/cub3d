@@ -1,11 +1,13 @@
 CC=cc
-CFLAGS=-Werror -Wextra -Wall  -g -fsanitize=address
+CFLAGS=  -g -fsanitize=address
 
 HEAP_CONTROL = 	heap_control/heap_control.c\
 				heap_control/utils.c
 
 EXECUTION = execution/main.c\
-			execution/cast_rays.c
+			execution/minimap.c\
+			execution/utils.c\
+			execution/init.c
 
 SRCS = 	$(HEAP_CONTROL)\
 		$(EXECUTION)
@@ -14,12 +16,12 @@ OBJS = $(SRCS:.c=.o)
 
 NAME = cub3D
 
-all: $(NAME) 
+all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $^ -lmlx -framework OpenGL -framework AppKit -o $@ 
+$(NAME): $(OBJS) includes/cub3d.h
+	$(CC) $(CFLAGS) $(OBJS) -lmlx -framework OpenGL -framework AppKit -o $@ 
 
-%.o: %.c
+%.o: %.c includes/cub3d.h
 	$(CC) $(CFLAGS) -c $< -I./includes -o $@
 
 bonus: all
