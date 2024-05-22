@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/22 21:55:03 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/22 22:00:00 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,6 @@
 # include <string.h>
 # include <stdio.h>
 
-
-typedef struct s_parse_data
-{
-	char	**map2d; // the map
-	int		p_x;  // player pos (x)
-	int		p_y;  // player pos (y)
-	int		w_map;  // map width
-	int		h_map;  // map height
-}		t_parse_data;
-
 # define MAIN 0
 # define MINIMAP 1
 
@@ -43,7 +33,7 @@ typedef struct s_parse_data
 # define ROTATION_SPEED 0.045
 # define PLAYER_SPEED 4
 
-typedef struct s_player //the player structure
+typedef struct s_player
 {
 	int		player_x; // player x position in pixels
 	int		player_y; // player y position in pixels
@@ -54,20 +44,20 @@ typedef struct s_player //the player structure
 	int		u_d; // up down flag
 }		t_player;
 
-typedef struct s_ray //the ray structure
+typedef struct s_ray
 {
-	double	ray_angle; // ray angle
-	double	distance_to_wall; // distance to the wall
-	int		flag_if_wall;  // flag for the wall
+	double	ray_angle;
+	double	distance_to_wall;
+	int		flag_if_wall;
 }		t_ray;
 
-typedef struct s_data //the data structure
+typedef struct s_data
 {
-	char			**map2d; // the map
-	int				p_x;  // player x position in the map
-	int				p_y;  // player y position in the map
-	int				w_map;  // map width
-	int				h_map;  // map height
+	char			**map2d;
+	int				p_x;
+	int				p_y;
+	int				w_map;
+	int				h_map;
 	struct s_mlx	*mlx;
 }		t_data;
 
@@ -80,14 +70,14 @@ typedef struct	s_mlx_img
 	int		endian;
 }		t_img;
 
-typedef struct s_mlx //the mlx structure
+typedef struct s_mlx
 {
-	t_img		img; // the image
+	t_img		img;
 	t_img		minimap_img;
 	void		*win;
-	void		*mlx_p; // the mlx pointer
-	t_ray		*ray; // the ray structure
-	t_data		*data; // the data structure
+	void		*mlx_p;
+	t_ray		*ray;
+	t_data		*data;
 	t_player	*p; // the player structure
 } 		t_mlx;
 
