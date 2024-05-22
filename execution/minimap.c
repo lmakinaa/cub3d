@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 19:05:18 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/22 22:58:41 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/22 23:09:56 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void	draw_minimap(t_mlx *mlx)
 		{
 			if (map[y][x] == '1')
 				color = 0x00FF0000;
-			else if (map[y][x] == '0')
+			else if (map[y][x] == '0' || map[y][x] == 'P')
 				color = 0xFF000000;
-			else if (map[y][x] == 'P')
+			if (x == mlx->data->p_x && y == mlx->data->p_y)
 				color = 0x0000FF00;
 			draw_tile(mlx, x * MINI_TILE_SIZE, y * MINI_TILE_SIZE, color);
 		}

@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 21:41:45 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/22 23:05:05 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/22 23:09:10 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ t_data	*init_data(void)
 
 void init_the_player(t_mlx *mlx)
 {
-	mlx->p->player_x = mlx->data->p_x * TILE_SIZE + TILE_SIZE / 2; // player x position in pixels in the center of the tile
-	mlx->p->player_y = mlx->data->p_y * TILE_SIZE + TILE_SIZE / 2; // player y position in pixels in the center of the tile
-	mlx->p->mini_p_x = mlx->data->p_x * MINI_TILE_SIZE + MINI_TILE_SIZE / 2; // player x position in minimap
-	mlx->p->mini_p_y = mlx->data->p_y * MINI_TILE_SIZE + MINI_TILE_SIZE / 2; // player y position in minimap
+	mlx->p->x_pixel = mlx->data->p_x * TILE_SIZE + TILE_SIZE / 2; // player x position in pixels in the center of the tile
+	mlx->p->y_pixel = mlx->data->p_y * TILE_SIZE + TILE_SIZE / 2; // player y position in pixels in the center of the tile
+	mlx->p->mini_x_pixel = mlx->data->p_x * MINI_TILE_SIZE + MINI_TILE_SIZE / 2; // player x position in minimap
+	mlx->p->mini_y_pixel = mlx->data->p_y * MINI_TILE_SIZE + MINI_TILE_SIZE / 2; // player y position in minimap
 	mlx->p->fov_rd = (FOV * M_PI) / 180; // field of view in radians
 	mlx->p->angle = M_PI; // player angle
 }
