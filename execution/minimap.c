@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 19:05:18 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 02:54:56 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 15:47:47 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,9 @@ void	draw_minimap(t_cub *mlx)
 			if (map[y][x] == '1')
 				color = 0xFF0F00FF;
 			else if (map[y][x] == '0' || map[y][x] == 'P')
-				color = 0xFF0F00FF;
+				color = 0;
 			if (x == mlx->data->p_x && y == mlx->data->p_y)
-				color = 0xFF0F00FF;
-			//mlx_put_pixel(mlx->minimap_img, 5, 5, color);
+				color = 0x0000FFFF;
 			draw_tile(mlx, x * MINI_TILE_SIZE, y * MINI_TILE_SIZE, color);
 		}
 	}
@@ -54,6 +53,6 @@ void	draw_minimap(t_cub *mlx)
 
 void	generate_minimap(t_cub *mlx)
 {
-	//new_img(mlx, MINIMAP, 0);
+	new_img(mlx, MINIMAP, 0);
 	draw_minimap(mlx);
 }
