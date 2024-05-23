@@ -6,6 +6,7 @@
 		"__node_handle": "c",
 		"__mutex_base": "c",
 		"atomic": "c",
-		"memory": "c"
+		"memory": "c",
+		"unistd.h": "c"
 	}
 }

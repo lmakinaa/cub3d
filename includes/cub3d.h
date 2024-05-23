@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 16:33:01 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 23:19:17 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@
 
 # define S_W 1900
 # define S_H 1000
-# define MINIMAP_H 180
-# define MINIMAP_W 300
+# define MINIMAP_H 1900
+# define MINIMAP_W 1000
 # define TILE_SIZE 32
-# define MINI_TILE_SIZE 10
+# define MINI_TILE_SIZE 32
 # define FOV 60
-# define ROTATION_SPEED 0.045
+# define ROTATION_SPEED 10 * M_PI / 180
 # define PLAYER_SPEED 4
 
 typedef struct s_player
@@ -85,5 +85,7 @@ void			init_the_player(t_cub *mlx);
 void			new_img(t_cub *mlx, int what_img);
 void			key_hooks(mlx_key_data_t k, void *m);
 void 			game_loop(void *m);
+void 			draw_line(t_cub *cub, int beginX, int beginY, int endX, int endY, int color);
+int 			get_rgba(int r, int g, int b, int a);
 
 #endif

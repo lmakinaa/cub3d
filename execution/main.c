@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:09:29 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 17:11:15 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 23:52:43 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,14 @@
 void	game_loop(void *m)
 {
 	t_cub *cub;
+	int tmp1;
+	int tmp2;
 
 	cub = m;
-	printf("%d\n", cub->p->l_r);
+	cub->p->angle += cub->p->l_r * ROTATION_SPEED;
+	int step = cub->p->u_d * 2;
+	cub->p->mini_x_pixel += cos(cub->p->angle) * step;
+	cub->p->mini_y_pixel += sin(cub->p->angle) * step;
 	generate_minimap(cub);
 	display_img(cub, MINIMAP);
 }
@@ -36,9 +41,9 @@ void start_the_game(t_data *data)
 	cub->img = mlx_new_image(cub->mlx_p, S_W, S_H);
 	if (!cub->img || (mlx_image_to_window(cub->mlx_p, cub->img, 0, 0) < 0))
 		exit_on_error("mlx_new_image() failed\n", 23);
-	cub->minimap_img = mlx_new_image(cub->mlx_p, MINIMAP_W + 50, MINIMAP_H + 50);
+	cub->minimap_img = mlx_new_image(cub->mlx_p, MINIMAP_W, MINIMAP_H);
 	if (!cub->minimap_img || (mlx_image_to_window(cub->mlx_p,
-		cub->minimap_img, 0, S_H - MINIMAP_H) < 0))
+		cub->minimap_img, 0, 0) < 0))
 		exit_on_error("mlx_new_image() failed\n", 23);
 	init_the_player(cub);
 	mlx_key_hook(cub->mlx_p, key_hooks, cub);

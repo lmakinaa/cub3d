@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 21:43:23 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 16:35:55 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 23:19:56 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	display_img(t_cub *mlx, int what_img)
 		(1) && (x = 0, y = 0, img = mlx->img, vr());
 	else if (what_img == MINIMAP)
 		(1) && (x = 0, y = S_H - MINIMAP_H, img = mlx->minimap_img, vr());
-	mlx_image_to_window(mlx->mlx_p, img, x, y);
+	mlx_image_to_window(mlx->mlx_p, img, 0, 0);
 }
 
 // hadi katcree image w katinitialisiha
@@ -49,4 +49,27 @@ void	new_img(t_cub *cub, int what_img)
 		mlx_delete_image(cub->mlx_p, cub->minimap_img);
 		cub->minimap_img = mlx_new_image(cub->mlx_p, w, h);
 	}
+}
+
+void	draw_line(t_cub *cub, int beginX, int beginY, int endX, int endY, int color)
+{
+	double deltaX = endX - beginX; // 10
+	double deltaY = endY - beginY; // 0
+	int pixels = sqrt((deltaX * deltaX) + (deltaY * deltaY));
+	deltaX /= pixels; // 1
+	deltaY /= pixels; // 0
+	double pixelX = beginX;
+	double pixelY = beginY;
+	while (pixels)
+	{
+		mlx_put_pixel(cub->minimap_img, pixelX, pixelY, color);
+		pixelX += deltaX;
+		pixelY += deltaY;
+		--pixels;
+	}
+}
+
+int get_rgba(int r, int g, int b, int a)
+{
+    return (r << 24 | g << 16 | b << 8 | a);
 }

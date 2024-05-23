@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 23:11:48 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 17:15:19 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 23:12:07 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,15 @@ void	arrows_act(t_cub *cub, int d, int p)
 		return ;
 	if (p == 1)
 	{
-		if (d == 'R')
+		if (d == 'R' || d == 'U')
 			(is_position_valid(cub->data, d)) && (p = 1);
-		else if (d == 'L')
-			(is_position_valid(cub->data, d)) && (p = -1);
-		else if (d == 'U')
-			(is_position_valid(cub->data, d)) && (p = 1);
-		else if (d == 'D')
+		else if (d == 'L' || d == 'D')
 			(is_position_valid(cub->data, d)) && (p = -1);
 	}
 	if (d == 'L' || d == 'R')
 		cub->p->l_r = p;
 	else if (d == 'U' || d == 'D')
-	cub->p->u_d = p;
+		cub->p->u_d = p;
 }
 
 void	arrows_handle(mlx_key_data_t *k, t_cub *cub, void (*f)(t_cub *cub, int d, int p))
