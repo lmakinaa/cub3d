@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 21:43:23 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 15:47:34 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 16:23:23 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	display_img(t_cub *mlx, int what_img)
 }
 
 // hadi katcree image w katinitialisiha
-void	new_img(t_cub *mlx, int what_img, int clear_it)
+void	new_img(t_cub *mlx, int what_img)
 {
 	int			h;
 	int			w;
