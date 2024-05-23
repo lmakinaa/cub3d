@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 23:11:48 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 16:52:32 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 17:07:29 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,28 +37,44 @@ int	is_position_valid(t_data *data, char direction)
 	return (1);
 }
 
-void	arrow_press(t_cub *cub, int d)
+void	arrows_act(t_cub *cub, int d, int p)
 {
-	if (d == 'R')
-		(is_position_valid(cub->data, 'R')) && (cub->data->p_x++);
-	else if (d == 'L')
-		(is_position_valid(cub->data, 'L')) && (cub->data->p_x--);
-	else if (d == 'U')
-		(is_position_valid(cub->data, 'U')) && (cub->data->p_y--);
-	else if (d == 'D')
-		(is_position_valid(cub->data, 'D')) && (cub->data->p_y++);
+	if (!d)
+		return ;
+	if (p == 1)
+	{
+		if (d == 'R')
+			(is_position_valid(cub->data, d)) && (p = 1);
+		else if (d == 'L')
+			(is_position_valid(cub->data, d)) && (p = -1);
+		else if (d == 'U')
+			(is_position_valid(cub->data, d)) && (p = 1);
+		else if (d == 'D')
+			(is_position_valid(cub->data, d)) && (p = -1);
+	}
+	cub->p->l_r = p;
+	cub->p->u_d = p;
 }
 
-void	key_press(mlx_key_data_t *k, t_cub *cub, void (*f)(t_cub *cub, int d))
+void	arrows_handle(mlx_key_data_t *k, t_cub *cub, void (*f)(t_cub *cub, int d, int p))
 {
+	int	press;
+	int	direction;
+
+	press = 1;
+	if (k->action == MLX_RELEASE)
+		press = 0;
+
+	direction = 0;
 	if (k->key == MLX_KEY_RIGHT)
-		f(cub, 'R');
+		direction = 'R';
 	else if (k->key == MLX_KEY_LEFT)
-		f(cub, 'L');
+		direction = 'L';
 	else if (k->key == MLX_KEY_UP)
-		f(cub, 'U');
+		direction = 'U';
 	else if (k->key == MLX_KEY_DOWN)
-		f(cub, 'D');
+		direction = 'D';
+	f(cub, direction, press);
 }
 
 void	key_hooks(mlx_key_data_t k, void *m)
@@ -67,5 +83,5 @@ void	key_hooks(mlx_key_data_t k, void *m)
 
 	cub = m;
 	if (k.action == MLX_PRESS)
-		key_press(&k, cub, arrow_press);
+		arrows_handle(&k, cub, arrows_act);
 }
