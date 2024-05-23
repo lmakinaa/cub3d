@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 23:11:48 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 01:54:28 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 16:00:26 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,17 @@ int	is_position_valid(t_data *data, char direction)
 * 126 = ↑
 * 125 = ↓
 */
-mlx_keyfunc	key_hooks(int k, t_cub *mlx)
+void	key_hooks(mlx_key_data_t k, void *m)
 {
-	if (k == 124 && is_position_valid(mlx->data, 'R'))
+	t_cub	*mlx;
+
+	mlx = m;
+	if (k.key == MLX_KEY_RIGHT && is_position_valid(mlx->data, 'R'))
 		mlx->data->p_x++;
-	else if (k == 123 && is_position_valid(mlx->data, 'L'))
+	else if (k.key == MLX_KEY_LEFT && is_position_valid(mlx->data, 'L'))
 		mlx->data->p_x--;
-	else if (k == 126 && is_position_valid(mlx->data, 'U'))
+	else if (k.key == MLX_KEY_UP && is_position_valid(mlx->data, 'U'))
 		mlx->data->p_y--;
-	else if (k == 125 && is_position_valid(mlx->data, 'D'))
+	else if (k.key == MLX_KEY_DOWN && is_position_valid(mlx->data, 'D'))
 		mlx->data->p_y++;
-	return (0);
 }

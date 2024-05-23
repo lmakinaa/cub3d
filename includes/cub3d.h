@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 02:26:24 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 15:59:16 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void			generate_minimap(t_cub *mlx);
 t_data			*init_data(void);
 void			init_the_player(t_cub *mlx);
 void			new_img(t_cub *mlx, int what_img, int clear_it);
-mlx_keyfunc		key_hooks(int k, t_cub *mlx);
+void			key_hooks(mlx_key_data_t k, void *m);
 void 			game_loop(void *m);
 
 #endif
