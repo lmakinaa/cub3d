@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:09:29 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 16:35:13 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 17:11:15 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	game_loop(void *m)
 	t_cub *cub;
 
 	cub = m;
+	printf("%d\n", cub->p->l_r);
 	generate_minimap(cub);
 	display_img(cub, MINIMAP);
 }

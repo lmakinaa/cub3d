@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 23:11:48 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 17:07:29 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 17:15:19 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@ void	arrows_act(t_cub *cub, int d, int p)
 		else if (d == 'D')
 			(is_position_valid(cub->data, d)) && (p = -1);
 	}
-	cub->p->l_r = p;
+	if (d == 'L' || d == 'R')
+		cub->p->l_r = p;
+	else if (d == 'U' || d == 'D')
 	cub->p->u_d = p;
 }
 
@@ -82,6 +84,6 @@ void	key_hooks(mlx_key_data_t k, void *m)
 	t_cub	*cub;
 
 	cub = m;
-	if (k.action == MLX_PRESS)
-		arrows_handle(&k, cub, arrows_act);
+	arrows_handle(&k, cub, arrows_act);
+	
 }
