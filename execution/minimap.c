@@ -6,13 +6,13 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 19:05:18 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 16:23:09 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 16:35:38 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "cub3d.h"
 
-void	draw_tile(t_cub *mlx, int x, int y, int color)
+void	draw_tile(t_cub *cub, int x, int y, int color)
 {
 	int	i;
 	int	j;
@@ -22,37 +22,37 @@ void	draw_tile(t_cub *mlx, int x, int y, int color)
 	{
 		j = -1;
 		while (++j < MINI_TILE_SIZE)
-			mlx_put_pixel(mlx->minimap_img, x + i, y + j, color);
+			mlx_put_pixel(cub->minimap_img, x + i, y + j, color);
 	}
 }
 
-void	draw_minimap(t_cub *mlx)
+void	draw_minimap(t_cub *cub)
 {
 	int		x;
 	int		y;
 	char	**map;
 	int		color;
 
-	map = mlx->data->map2d;
+	map = cub->data->map2d;
 	y = -1;
-	while (++y < mlx->data->h_map)
+	while (++y < cub->data->h_map)
 	{
 		x = -1;
-		while (++x < mlx->data->w_map)
+		while (++x < cub->data->w_map)
 		{
 			if (map[y][x] == '1')
 				color = 0xFF0F00FF;
 			else if (map[y][x] == '0' || map[y][x] == 'P')
 				color = C_TRANSPARENT;
-			if (x == mlx->data->p_x && y == mlx->data->p_y)
+			if (x == cub->data->p_x && y == cub->data->p_y)
 				color = 0x0000FFFF;
-			draw_tile(mlx, x * MINI_TILE_SIZE, y * MINI_TILE_SIZE, color);
+			draw_tile(cub, x * MINI_TILE_SIZE, y * MINI_TILE_SIZE, color);
 		}
 	}
 }
 
-void	generate_minimap(t_cub *mlx)
+void	generate_minimap(t_cub *cub)
 {
-	new_img(mlx, MINIMAP);
-	draw_minimap(mlx);
+	new_img(cub, MINIMAP);
+	draw_minimap(cub);
 }

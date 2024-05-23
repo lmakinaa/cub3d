@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 16:22:56 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 16:33:01 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ typedef struct s_data
 	int				p_y;
 	int				w_map;
 	int				h_map;
-	struct s_mlx	*mlx;
+	struct s_cub	*cub;
 }		t_data;
 
-typedef struct s_mlx
+typedef struct s_cub
 {
 	mlx_image_t		*img;
 	mlx_image_t		*minimap_img;

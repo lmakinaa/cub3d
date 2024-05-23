@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 21:43:23 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 16:23:23 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 16:35:55 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	display_img(t_cub *mlx, int what_img)
 }
 
 // hadi katcree image w katinitialisiha
-void	new_img(t_cub *mlx, int what_img)
+void	new_img(t_cub *cub, int what_img)
 {
 	int			h;
 	int			w;
@@ -40,13 +40,13 @@ void	new_img(t_cub *mlx, int what_img)
 	if (what_img == MAIN)
 	{
 		(1) && (h = S_H, w = S_W);
-		mlx_delete_image(mlx->mlx_p, mlx->img);
-		mlx->img = mlx_new_image(mlx->mlx_p, w, h);
+		mlx_delete_image(cub->mlx_p, cub->img);
+		cub->img = mlx_new_image(cub->mlx_p, w, h);
 	}
 	else if (what_img == MINIMAP)
 	{
 		(1) && (h = MINIMAP_H, w = MINIMAP_W);
-		mlx_delete_image(mlx->mlx_p, mlx->minimap_img);
-		mlx->minimap_img = mlx_new_image(mlx->mlx_p, w, h);
+		mlx_delete_image(cub->mlx_p, cub->minimap_img);
+		cub->minimap_img = mlx_new_image(cub->mlx_p, w, h);
 	}
 }
