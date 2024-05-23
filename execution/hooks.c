@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 23:11:48 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 16:33:43 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 16:52:32 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,35 @@ int	is_position_valid(t_data *data, char direction)
 	return (1);
 }
 
-/*
-* 124 = →
-* 123 = ←
-* 126 = ↑
-* 125 = ↓
-*/
+void	arrow_press(t_cub *cub, int d)
+{
+	if (d == 'R')
+		(is_position_valid(cub->data, 'R')) && (cub->data->p_x++);
+	else if (d == 'L')
+		(is_position_valid(cub->data, 'L')) && (cub->data->p_x--);
+	else if (d == 'U')
+		(is_position_valid(cub->data, 'U')) && (cub->data->p_y--);
+	else if (d == 'D')
+		(is_position_valid(cub->data, 'D')) && (cub->data->p_y++);
+}
+
+void	key_press(mlx_key_data_t *k, t_cub *cub, void (*f)(t_cub *cub, int d))
+{
+	if (k->key == MLX_KEY_RIGHT)
+		f(cub, 'R');
+	else if (k->key == MLX_KEY_LEFT)
+		f(cub, 'L');
+	else if (k->key == MLX_KEY_UP)
+		f(cub, 'U');
+	else if (k->key == MLX_KEY_DOWN)
+		f(cub, 'D');
+}
+
 void	key_hooks(mlx_key_data_t k, void *m)
 {
 	t_cub	*cub;
 
 	cub = m;
-	if (k.key == MLX_KEY_RIGHT && is_position_valid(cub->data, 'R'))
-		cub->data->p_x++;
-	else if (k.key == MLX_KEY_LEFT && is_position_valid(cub->data, 'L'))
-		cub->data->p_x--;
-	else if (k.key == MLX_KEY_UP && is_position_valid(cub->data, 'U'))
-		cub->data->p_y--;
-	else if (k.key == MLX_KEY_DOWN && is_position_valid(cub->data, 'D'))
-		cub->data->p_y++;
+	if (k.action == MLX_PRESS)
+		key_press(&k, cub, arrow_press);
 }
