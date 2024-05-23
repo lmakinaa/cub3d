@@ -6,48 +6,97 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:09:29 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 00:13:45 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 02:52:36 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "cub3d.h"
 
-int game_loop(void *m)
+void	game_loop(void *m)
 {
-	t_mlx *mlx;
+	t_cub *mlx;
 
 	mlx = m;
 	generate_minimap(mlx);
+	//mlx_put_pixel(mlx->minimap_img, 5, 5, 0xFF0F00FF);
+	//mlx_put_pixel(mlx->minimap_img, 5, 10, 0xFF0F00FF);
 	display_img(mlx, MINIMAP);
-	return (0);
 }
 
 void start_the_game(t_data *data)
 {
-	t_mlx	*mlx;
+	t_cub	*mlx;
 
 	mlx = data->mlx;
 	mlx->data = data;
 	mlx->p = heap_control(M_ALLOC, sizeof(t_player), 0, 1);
 	mlx->ray = heap_control(M_ALLOC, sizeof(t_ray), 0, 1);
-	mlx->mlx_p = mlx_init();
-	mlx->win = mlx_new_window(mlx->mlx_p, S_W, S_H, "Cub3D");
-	mlx->img.img_p = mlx_new_image(mlx->mlx_p, S_W, S_H);
-	mlx->img.tile_s = TILE_SIZE;
-	mlx->minimap_img.img_p = mlx_new_image(mlx->mlx_p, MINIMAP_W, MINIMAP_H);
-	mlx->minimap_img.tile_s = MINI_TILE_SIZE;
+	mlx->mlx_p = mlx_init(S_W, S_H, "cub3d", true);
+	if (!mlx->mlx_p)
+		exit_on_error("mlx_init() failed\n", 18);
+	mlx->img = mlx_new_image(mlx->mlx_p, S_W, S_H);
+	mlx->minimap_img = mlx_new_image(mlx->mlx_p, MINIMAP_W + 50, MINIMAP_H + 50);
+	//if (!mlx->minimap_img || (mlx_image_to_window(mlx->mlx_p, mlx->minimap_img, 0, 0) < 0))
+	//	exit_on_error("mlx_init() failed\n", 18);
 	init_the_player(mlx);
 	mlx_loop_hook(mlx->mlx_p, game_loop, mlx);
-	mlx_key_hook(mlx->win, key_hooks, mlx);
+	//game_loop(mlx);
+	//mlx_key_hook(mlx, key_hooks, mlx);
 }
 
+static void ft_hook(void* param)
+{
+	const mlx_t* mlx = param;
+
+
+	printf("WIDTH: %d | HEIGHT: %d\n", mlx->width, mlx->height);
+}
 int main(void)
 {
 	t_data *data;
 
 	data = init_data();
 	start_the_game(data);
+	//data->mlx->mlx_p = mlx_init(S_W, S_H, "fs", true);
+	//data->mlx->img = mlx_new_image(data->mlx->mlx_p, 256, 256);
+	//game_loop(data->mlx);
+	
+	//mlx_put_pixel(data->mlx->img, 5, 5, 0xFF0F00FF);
+	//mlx_put_pixel(data->mlx->img, 5, 10, 0xFF0F00FF);
+	//mlx_image_to_window(data->mlx->mlx_p, data->mlx->img, 0, 0);
+	
+	//mlx_loop_hook(data->mlx->mlx_p, ft_hook, data->mlx->mlx_p);
 	mlx_loop(data->mlx->mlx_p);
-	heap_control(M_CLEAN, 0, 0, 0);
+	mlx_terminate(data->mlx->mlx_p);
+	//heap_control(M_CLEAN, 0, 0, 0); // lmode dyal lclean 5asr 7alyan tangado
 	return 0;
 }
+
+
+//int32_t	main(void)
+//{
+
+//	// MLX allows you to define its core behaviour before startup.
+//	//mlx_set_setting(MLX_MAXIMIZED, true);
+//	mlx_t* mlx = mlx_init(S_W, S_H, "42Balls", true);
+//	//if (!mlx)
+//	//	ft_error();
+
+//	/* Do stuff */
+
+//	// Create and display the image.
+//	mlx_image_t* img = mlx_new_image(mlx, 256, 256);
+//	if (!img || (mlx_image_to_window(mlx, img, 0, 0) < 0));
+//		//ft_error();
+
+//	// Even after the image is being displayed, we can still modify the buffer.
+//	mlx_put_pixel(img, 10, 10, 0xFF0F00FF);
+
+//	// Register a hook and pass mlx as an optional param.
+//	// NOTE: Do this before calling mlx_loop!
+	
+//	mlx_loop_hook(mlx, ft_hook, mlx);
+//	mlx_loop(mlx);
+//	mlx_terminate(mlx);
+//	return (EXIT_SUCCESS);
+//}

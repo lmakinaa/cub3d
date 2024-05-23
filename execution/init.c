@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 21:41:45 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/22 23:09:10 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 02:40:03 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_data	*init_data(void)
 
 	res = heap_control(M_ALLOC, sizeof(t_data), 0, 1); // init the data structure
 	res->map2d = heap_control(M_ALLOC, 10 * sizeof(char *), 0, 1); // init the map
-	res->mlx = heap_control(M_ALLOC, sizeof(t_mlx), 0, 1);
+	res->mlx = heap_control(M_ALLOC, sizeof(t_cub), 0, 1);
 	res->map2d[0] = strdup("1111111111111111111111111"); //fill the map
 	res->map2d[1] = strdup("1000000000000000000100001");
 	res->map2d[2] = strdup("1001000000000P00000000001");
@@ -36,7 +36,7 @@ t_data	*init_data(void)
 	return (res); // return the data structure
 }
 
-void init_the_player(t_mlx *mlx)
+void init_the_player(t_cub *mlx)
 {
 	mlx->p->x_pixel = mlx->data->p_x * TILE_SIZE + TILE_SIZE / 2; // player x position in pixels in the center of the tile
 	mlx->p->y_pixel = mlx->data->p_y * TILE_SIZE + TILE_SIZE / 2; // player y position in pixels in the center of the tile

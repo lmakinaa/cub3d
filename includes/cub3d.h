@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 00:05:48 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 02:26:24 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
-# include <mlx.h>
+# include "MLX42.h"
 # include <string.h>
 # include <stdio.h>
 
@@ -66,37 +66,24 @@ typedef struct s_data
 	struct s_mlx	*mlx;
 }		t_data;
 
-typedef struct	s_mlx_img
-{
-	void	*img_p;
-	char	*start_addr;
-	int		bpp;
-	int		line_size;
-	int		endian;
-	int		tile_s;
-}		t_img;
-
 typedef struct s_mlx
 {
-	t_img		img;
-	t_img		minimap_img;
-	void		*win;
-	void		*mlx_p;
-	t_ray		*ray;
-	t_data		*data;
-	t_player	*p; // the player structure
-} 		t_mlx;
+	mlx_image_t		*img;
+	mlx_image_t		*minimap_img;
+	mlx_t			*mlx_p;
+	t_ray			*ray;
+	t_data			*data;
+	t_player		*p; // the player structure
+} 		t_cub;
 
-void 	cast_rays(t_mlx *mlx);
-void	draw_minimap(t_mlx *mlx);
-void	display_img(t_mlx *mlx, int what_img);
-void	generate_minimap(t_mlx *mlx);
-t_data	*init_data(void);
-void	init_the_player(t_mlx *mlx);
-void	pixel_put(t_img img, int x, int y, unsigned int color);
-void	new_img(t_mlx *mlx, int what_img, int clear_it);
-int		key_hooks(int k, t_mlx *mlx);
-int 	game_loop(void *m);
-void	clear_image(t_img *img, int h, int w);
+void 			cast_rays(t_cub *mlx);
+void			draw_minimap(t_cub *mlx);
+void			display_img(t_cub *mlx, int what_img);
+void			generate_minimap(t_cub *mlx);
+t_data			*init_data(void);
+void			init_the_player(t_cub *mlx);
+void			new_img(t_cub *mlx, int what_img, int clear_it);
+mlx_keyfunc		key_hooks(int k, t_cub *mlx);
+void 			game_loop(void *m);
 
 #endif

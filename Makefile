@@ -1,5 +1,6 @@
 CC=cc
-CFLAGS=  -g -fsanitize=address
+CFLAGS=  -g -fsanitize=address -DEBUG=1
+GLFW = $(shell brew --prefix glfw)/lib
 
 HEAP_CONTROL = 	heap_control/heap_control.c\
 				heap_control/utils.c
@@ -13,16 +14,19 @@ EXECUTION = execution/main.c\
 SRCS = 	$(HEAP_CONTROL)\
 		$(EXECUTION)
 
+INCLUDES = includes/cub3d.h includes/MLX42.h
+LIBS = mlx/libmlx42.a -lglfw -L$(GLFW) -pthread -lm
+
 OBJS = $(SRCS:.c=.o)
 
 NAME = cub3D
 
 all: $(NAME)
 
-$(NAME): $(OBJS) includes/cub3d.h
-	$(CC) $(CFLAGS) $(OBJS) -lmlx -framework OpenGL -framework AppKit -o $@ 
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $@ 
 
-%.o: %.c includes/cub3d.h
+%.o: %.c $(INCLUDES)
 	$(CC) $(CFLAGS) -c $< -I./includes -o $@
 
 bonus: all

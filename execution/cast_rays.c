@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 19:17:40 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/22 01:25:21 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 01:45:30 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ float	map_angle(double angle)
 	return (angle);
 }
 
-void cast_rays(t_mlx *mlx)
+void cast_rays(t_cub *mlx)
 {
 	double h_inter;
 	double v_inter;

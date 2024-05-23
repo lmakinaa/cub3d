@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 23:11:48 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 00:07:42 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/23 01:54:28 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	is_position_valid(t_data *data, char direction)
 * 126 = ↑
 * 125 = ↓
 */
-int	key_hooks(int k, t_mlx *mlx)
+mlx_keyfunc	key_hooks(int k, t_cub *mlx)
 {
 	if (k == 124 && is_position_valid(mlx->data, 'R'))
 		mlx->data->p_x++;
