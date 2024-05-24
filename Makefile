@@ -9,7 +9,8 @@ EXECUTION = execution/main.c\
 			execution/minimap.c\
 			execution/utils.c\
 			execution/init.c\
-			execution/hooks.c
+			execution/hooks.c\
+			execution/update_vars.c
 
 SRCS = 	$(HEAP_CONTROL)\
 		$(EXECUTION)

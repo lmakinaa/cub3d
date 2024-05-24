@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:09:29 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/24 00:06:53 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/24 01:28:55 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ void	game_loop(void *m)
 	int tmp2;
 
 	cub = m;
-	cub->p->angle += cub->p->l_r * ROTATION_SPEED;
-	int step = cub->p->u_d * PLAYER_SPEED;
-	cub->p->mini_x_pixel += cos(cub->p->angle) * step;
-	cub->p->mini_y_pixel += sin(cub->p->angle) * step;
+	update_vars(cub);
 	generate_minimap(cub);
 	display_img(cub, MINIMAP);
 }

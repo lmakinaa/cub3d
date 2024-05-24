@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/24 00:06:57 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/24 01:28:46 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ void			key_hooks(mlx_key_data_t k, void *m);
 void 			game_loop(void *m);
 void 			draw_line(t_cub *cub, int beginX, int beginY, int endX, int endY, int color);
 int 			get_rgba(int r, int g, int b, int a);
+void			update_vars(t_cub *cub);
 
 #endif
