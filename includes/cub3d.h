@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/24 01:28:46 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/24 02:09:20 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 # define FOV 60
 # define ROTATION_SPEED 10 * M_PI / 180
 # define PLAYER_SPEED 2
+# define NUM_RAYS FOV / MINIMAP_W
 
 typedef struct s_player
 {
@@ -88,5 +89,6 @@ void 			game_loop(void *m);
 void 			draw_line(t_cub *cub, int beginX, int beginY, int endX, int endY, int color);
 int 			get_rgba(int r, int g, int b, int a);
 void			update_vars(t_cub *cub);
+double			map_angle(double angle);
 
 #endif

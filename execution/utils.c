@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 21:43:23 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 23:19:56 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/24 02:06:21 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,13 @@ void	draw_line(t_cub *cub, int beginX, int beginY, int endX, int endY, int color
 int get_rgba(int r, int g, int b, int a)
 {
     return (r << 24 | g << 16 | b << 8 | a);
+}
+
+double	map_angle(double angle)
+{
+	if (angle < 0)
+		angle += (2 * M_PI);
+	else if (angle > 0)
+		angle -= (2 * M_PI);
+	return (angle);
 }
