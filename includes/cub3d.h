@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/24 02:09:20 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/24 16:58:20 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # define FOV 60
 # define ROTATION_SPEED 10 * M_PI / 180
 # define PLAYER_SPEED 2
-# define NUM_RAYS FOV / MINIMAP_W
+# define N_RAYS S_W / 10
 
 typedef struct s_player
 {
@@ -55,6 +55,7 @@ typedef struct s_ray
 	double	ray_angle;
 	double	distance_to_wall;
 	int		flag_if_wall;
+	float	n_rays;
 }		t_ray;
 
 typedef struct s_data
@@ -77,13 +78,13 @@ typedef struct s_cub
 	t_player		*p; // the player structure
 } 		t_cub;
 
-void 			cast_rays(t_cub *mlx);
-void			draw_minimap(t_cub *mlx);
-void			display_img(t_cub *mlx, int what_img);
-void			generate_minimap(t_cub *mlx);
+void 			cast_rays(t_cub *cub, int x, int y);
+void			draw_minimap(t_cub *cub);
+void			display_img(t_cub *cub, int what_img);
+void			generate_minimap(t_cub *cub);
 t_data			*init_data(void);
-void			init_the_player(t_cub *mlx);
-void			new_img(t_cub *mlx, int what_img);
+void			init_the_player(t_cub *cub);
+void			new_img(t_cub *cub, int what_img);
 void			key_hooks(mlx_key_data_t k, void *m);
 void 			game_loop(void *m);
 void 			draw_line(t_cub *cub, int beginX, int beginY, int endX, int endY, int color);
