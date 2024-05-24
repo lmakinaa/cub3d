@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
+/*   By: miguiji <miguiji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 19:05:18 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 23:49:40 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/24 01:07:54 by miguiji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,12 @@ void	draw_mini_player(t_cub *cub, int x, int y, int color)
 	}
 	x += MINI_TILE_SIZE / 4;
 	y += MINI_TILE_SIZE / 4;
-	draw_line(cub, x, y,
-		x + cos(cub->p->angle) * 25,
-		y + sin(cub->p->angle) * 25,
-		color);
+	double ang = -M_PI/6;
+	while(ang <= M_PI/6)
+	{
+	draw_line(cub, x, y, x + cos(cub->p->angle + ang) * 50,y + sin(cub->p->angle + ang) * 50, color);
+	ang += 0.01;
+	}
 }
 
 void	draw_minimap(t_cub *cub)

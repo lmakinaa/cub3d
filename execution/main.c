@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
+/*   By: miguiji <miguiji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:09:29 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 23:52:43 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/24 00:49:28 by miguiji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,26 @@ void	game_loop(void *m)
 	cub = m;
 	cub->p->angle += cub->p->l_r * ROTATION_SPEED;
 	int step = cub->p->u_d * 2;
-	cub->p->mini_x_pixel += cos(cub->p->angle) * step;
-	cub->p->mini_y_pixel += sin(cub->p->angle) * step;
+	int tmp_x = cub->p->mini_x_pixel + (cos(cub->p->angle) * step);
+	int tmp_y = cub->p->mini_y_pixel + (sin(cub->p->angle) * step);
+	int var_x = tmp_x / TILE_SIZE;
+	int var_y = tmp_y / TILE_SIZE;
+	printf("x: %d, y: %d\n", var_x, var_y);
+	printf("x: %c\n", cub->data->map2d[var_y][var_x]);
+	if (cub->data->map2d[var_y][var_x] != '1')
+	{
+		var_x = (tmp_x + TILE_SIZE / 2) / TILE_SIZE;
+		var_y = (tmp_y + TILE_SIZE / 2) / TILE_SIZE;
+		if(cub->data->map2d[var_y][var_x] != '1')
+		{
+			cub->p->mini_x_pixel = tmp_x;
+			cub->p->mini_y_pixel = tmp_y;
+		}
+	}
 	generate_minimap(cub);
 	display_img(cub, MINIMAP);
 }
+
 
 void start_the_game(t_data *data)
 {
