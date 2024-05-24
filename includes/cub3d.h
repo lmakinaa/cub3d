@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/23 23:19:17 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/24 00:06:57 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define MINI_TILE_SIZE 32
 # define FOV 60
 # define ROTATION_SPEED 10 * M_PI / 180
-# define PLAYER_SPEED 4
+# define PLAYER_SPEED 2
 
 typedef struct s_player
 {
