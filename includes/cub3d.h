@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:26:59 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/24 17:09:12 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/24 17:23:09 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # define FOV 60
 # define ROTATION_SPEED 10 * M_PI / 180
 # define PLAYER_SPEED 2
-# define N_RAYS S_W / 5
+# define N_RAYS S_W / 1
 
 typedef struct s_player
 {
