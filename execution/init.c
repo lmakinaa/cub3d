@@ -6,7 +6,7 @@
 /*   By: ijaija <ijaija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 21:41:45 by ijaija            #+#    #+#             */
-/*   Updated: 2024/05/24 00:01:56 by ijaija           ###   ########.fr       */
+/*   Updated: 2024/05/24 17:02:40 by ijaija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@ void init_the_player(t_cub *cub)
 	cub->p->mini_y_pixel = cub->data->p_y * MINI_TILE_SIZE + MINI_TILE_SIZE / 2; // player y position in minimap
 	cub->p->fov_rd = (FOV * M_PI) / 180; // field of view in radians
 	cub->p->angle = M_PI; // player angle
+	cub->ray->n_rays = (float) N_RAYS;
 }
